@@ -6,16 +6,26 @@ public class Player : MonoBehaviour
 {
 
     float speed = 10f;
-    public Rigidbody playerRigidbody; 
+    private Rigidbody playerRigidbody; 
 
     void Start()
     {
-        playerRigidbody.AddForce(0, 1000, 0);
+        // 현재 게임오브젝트 컴포넌트 내에 <> 안에 들어간 타입의 컴포넌트를 찾는다.
+        playerRigidbody = GetComponent<Rigidbody>();
     }
-
 
     void Update()
     {
-        
+        float InputX = Input.GetAxis("Horizontal");
+        float InputZ = Input.GetAxis("Vertical");
+        float fallSpeed = playerRigidbody.velocity.y;
+
+        Vector3 velocity = new Vector3(InputX, 0, InputZ);
+
+        velocity = velocity * speed;
+
+        velocity.y = fallSpeed;
+
+        playerRigidbody.velocity = velocity;
     }
 }
