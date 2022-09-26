@@ -5,8 +5,9 @@ using UnityEngine;
 public class ItemBox : MonoBehaviour
 {
 
-    private Renderer myRenderer;
+    public bool isOveraped = false;
 
+    private Renderer myRenderer;
     public Color touchColor;
     private Color originalColor;
 
@@ -26,6 +27,7 @@ public class ItemBox : MonoBehaviour
     // Enter : 충돌을 한 그 순간
     void OnTriggerEnter(Collider other) {
         if(other.tag == "EndPoint") {
+            isOveraped = true;
             myRenderer.material.color = touchColor;
         }
     }
@@ -33,6 +35,7 @@ public class ItemBox : MonoBehaviour
     // Exit : 붙어있다가 떼어질 때
     void OnTriggerExit(Collider other) {
         if(other.tag == "EndPoint") {
+            isOveraped = false;
             myRenderer.material.color = originalColor;
         }
     }
@@ -40,6 +43,7 @@ public class ItemBox : MonoBehaviour
     // Stay : 붙어있는 동안
     void OnTriggerStay(Collider other) {
         if(other.tag == "EndPoint") {
+            isOveraped = true;
             myRenderer.material.color = touchColor;
         }
     }
