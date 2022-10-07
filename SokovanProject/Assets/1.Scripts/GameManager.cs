@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-
+    public GameObject winUI;
     public ItemBox[] itemBoxes;
     public bool isGameOver;
     // Start is called before the first frame update
@@ -16,6 +17,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.Space)) {
+            SceneManager.LoadScene("Main");
+        } 
+
         if(isGameOver == true) {
             return;
         }
@@ -29,6 +35,7 @@ public class GameManager : MonoBehaviour
 
         if(count >= 3) {
             isGameOver = true;
+            winUI.SetActive(true);
             Debug.Log("게임 승리");
         }
     }

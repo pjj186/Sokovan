@@ -428,12 +428,12 @@ GameObject:
   - component: {fileID: 243408955}
   - component: {fileID: 243408957}
   m_Layer: 5
-  m_Name: Text
+  m_Name: WinUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &243408954
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1556,6 +1556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f60e4909466e740ab9be5b8de28b65ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winUI: {fileID: 243408953}
   itemBoxes:
   - {fileID: 1037936807}
   - {fileID: 1567825850}
