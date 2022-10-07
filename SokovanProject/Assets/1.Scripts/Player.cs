@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    public GameManager gameManager;
     public float speed = 3f;
     private Rigidbody playerRigidbody; 
 
@@ -16,6 +16,9 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if(gameManager.isGameOver == true) {
+            return;
+        }
         float InputX = Input.GetAxis("Horizontal");
         float InputZ = Input.GetAxis("Vertical");
         float fallSpeed = playerRigidbody.velocity.y;
